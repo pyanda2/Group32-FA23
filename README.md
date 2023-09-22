@@ -1,8 +1,14 @@
-# Group TEAM_NUMBER
-Group Name: TEAM_NAME
+# Group 32
+Group Name: MultimodASL
 
-[MVP Link](http://cs196.cs.illinois.edu)
+[MVP Link](https://docs.google.com/document/d/1Odkg_HaW8xWkxFdlWFanyABWQbBNVIw97vap5pxlj6o/edit?usp=sharing)
 
-Team Members: STUDENTS_NETIDS
+Team Members: 
+- tiankai2
+- geraldo3
+- mp58
+- srikarp3
+- sguach2
+- vanir2
 
-Project Manager: PM_NETID
+Project Manager: pyanda2
