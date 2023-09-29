@@ -1,1 +1,5 @@
 Fill out this directory with folders for each student (using netid for folder name) and add placeholder files in each folder so that the directory can be added to git
+Guides:
+- https://towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442
+Potential datasets:
+- https://www.kaggle.com/datasets/datamunge/sign-language-mnist
