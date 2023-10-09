@@ -3,3 +3,7 @@ Guides:
 - https://towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442
 Potential datasets:
 - https://www.kaggle.com/datasets/datamunge/sign-language-mnist
+- https://www.kaggle.com/datasets/grassknoted/asl-alphabet (mp58)
+- https://www.kaggle.com/datasets/risangbaskoro/wlasl-processed //this is a video dataset! (mp58)
+- https://www.kaggle.com/datasets/prathumarikeri/american-sign-language-09az (mp58)
+- https://www.kaggle.com/datasets/rahulmakwana/american-sign-language-recognition (mp58)
