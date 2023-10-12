@@ -12,3 +12,10 @@ Team Members:
 - vanir2
 
 Project Manager: pyanda2
+
+--------------------------------
+To run .ipynb:
+
+1. Download data from https://www.kaggle.com/datasets/datamunge/sign-language-mnist/ into Project/data folder
+2. Install the needed dependencies (pip install ...)
+3. Run the notebook, block by block
