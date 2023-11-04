@@ -1,39 +1,28 @@
-import gradio as gr
 import cv2
-import tempfile
-import base64
+import mediapipe as mp
+import numpy as np
+import gradio as gr
 
+mp_selfie = mp.solutions.selfie_segmentation
 
-def capture_photo():
-    
-    cap = cv2.VideoCapture(0)    
-    ret, frame = cap.read()
-    cap.release()
+def segment(image):
+    with mp_selfie.SelfieSegmentation(model_selection=0) as model:
+        res = model.process(image)
+        mask = np.stack((res.segmentation_mask,)*3, axis=-1) > 0.5
+        return np.where(mask, image, cv2.blur(image, (40, 40))
 
-    
-    if ret:
-        
-        with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as temp_file:
-            cv2.imwrite(temp_file.name, frame)
+# Create a Gradio input for the webcam feed
+webcam = gr.inputs.Camera()
 
-        with open(temp_file.name, "rb") as img_file:
-            encoded_image = base64.b64encode(img_file.read()).decode()
+# Create a Gradio output for the segmented image
+output_image = gr.outputs.Image(type="pil")
 
-        return encoded_image
-    else:
-        return None
+# Define a Gradio interface with the segment function
+webapp = gr.Interface(
+    fn=segment,
+    inputs=webcam,
+    outputs=output_image,
+)
 
-
-with gr.Blocks(theme=gr.themes.Soft()) as demo:
-    with gr.Tabs() as tabs:
-        with gr.TabItem("Learning Mode", id=0):
-            t = gr.Textbox()
-        with gr.TabItem("Game Mode", id=1):
-            with gr.Row():   
-                captured_image = gr.Image()
-                def take_photo(): 
-                    captured_image.image = capture_photo()
-
-                
-
-demo.launch()
+# Launch the Gradio interface within the Jupyter notebook
+webapp.launch()
